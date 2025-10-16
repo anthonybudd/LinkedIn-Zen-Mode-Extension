@@ -4,7 +4,7 @@
   <img src="icon128.png" alt="Icon" width="64" height="64"/>
 </p>
 
-I'm done with all of the virtue signalling cringe posts from pages like LeaderShip First and The Female Lead so I have made a Chrome extension that entirley removes your feed and the news sidebar.
+I'm done with all of the virtue signalling cringe posts from pages like LeaderShip First and The Female Lead so I have made a Chrome extension that entirely removes your feed and the news sidebar.
 
 <p align="center">
   <img src="screenshot.png" alt="Screenshot of extension hiding LinkedIn feed and news sidebar"/>
