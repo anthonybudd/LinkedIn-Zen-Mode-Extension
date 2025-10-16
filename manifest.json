@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "LinkedIn Foobar Hider",
+    "name": "LinkedIn Feed Hider",
     "version": "1.0",
-    "description": "A Chrome extension that hides elements with the class 'foobar' on LinkedIn.com",
+    "description": "A Chrome extension that hides the feed and news sidebar on LinkedIn.com",
     "permissions": [
         "activeTab"
     ],
