@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "LinkedIn Foobar Hider",
+    "version": "1.0",
+    "description": "A Chrome extension that hides elements with the class 'foobar' on LinkedIn.com",
+    "permissions": [
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.linkedin.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "icons": {
+        "128": "icon128.png"
+    }
+}
