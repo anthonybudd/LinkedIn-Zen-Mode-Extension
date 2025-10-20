@@ -17,7 +17,8 @@
 
         // Add info div to main feed
         const infoDiv = document.createElement('div');
-        infoDiv.textContent = 'Feed hidden by Linkedin Zen Mode extension';
+        infoDiv.textContent = 'Feed hidden by LinkedIn Zen Mode extension';
+        infoDiv.style.textAlign = 'center';
         infoDiv.style.background = '#fff';
         infoDiv.style.color = '#333';
         infoDiv.style.padding = '12px 24px';
