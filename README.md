@@ -12,18 +12,11 @@ I'm done with all of the AI slop and virtue signalling cringe posts on Linkedin 
 
 ## Installation
 
-1. Download the release zip file and unzip it
+1. [Download the release zip file](https://github.com/anthonybudd/LinkedIn-Zen-Mode-Extension/archive/refs/tags/v2.0.0.zip) and unzip it.
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable "Developer mode" in the top right corner
 4. Click "Load unpacked" and select the folder
 5. The extension will be installed and active
-
-
-## Files
-
-- `manifest.json` - Extension configuration
-- `content.js` - Content script that hides the elements
-- `README.md` - This file
 
 ## Uninstalling
 
@@ -32,3 +25,8 @@ To remove the extension:
 2. Find "LinkedIn scaffold-finite-scroll Hider" in the list
 3. Click the "Remove" button
 
+## Files
+
+- `manifest.json` - Extension configuration
+- `content.js` - Content script that hides the elements
+- `README.md` - This file
