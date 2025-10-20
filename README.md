@@ -7,7 +7,7 @@
 I'm done with all of the AI slop and virtue signalling cringe posts on Linkedin so I have made a Chrome extension that entirely removes the feed and the news sidebar.
 
 <p align="center">
-  <img src="screenshot.png" alt="Screenshot of extension hiding LinkedIn feed and news sidebar"/>
+  <img src="screenshot.png?v=2" alt="Screenshot of extension hiding LinkedIn feed and news sidebar"/>
 </p>
 
 ## Installation

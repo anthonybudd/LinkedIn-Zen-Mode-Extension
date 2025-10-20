@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "LinkedIn Feed Hider",
+    "name": "LinkedIn Zen Mode Extension",
     "version": "1.0",
-    "description": "A Chrome extension that hides the feed and news sidebar on LinkedIn.com",
+    "description": "An extension that hides the feed and news sidebar on LinkedIn.com",
     "permissions": [
         "activeTab"
     ],
