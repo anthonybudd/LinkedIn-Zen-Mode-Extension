@@ -30,4 +30,39 @@
 
     hideLinkedInElements();
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hideLinkedInElements);
+    let lastUrl = location.href;
+
+    const urlObserver = new MutationObserver(() => {
+        if (location.href !== lastUrl) {
+            lastUrl = location.href;
+            if (location.pathname.startsWith('/feed/')) {
+                hideLinkedInElements();
+            }
+        }
+    });
+
+    urlObserver.observe(document, { subtree: true, childList: true });
+
+
+    function addZenModeNavigationListeners() {
+        ['popstate', 'pushstate', 'replacestate'].forEach(eventType => {
+            window.addEventListener(eventType, () => {
+                if (location.pathname.startsWith('/feed/')) {
+                    hideLinkedInElements();
+                }
+            });
+        });
+    }
+    addZenModeNavigationListeners();
+
+    // To catch manual navigation using pushState/replaceState, patch them
+    ['pushState', 'replaceState'].forEach(method => {
+        const orig = history[method];
+        history[method] = function () {
+            const result = orig.apply(this, arguments);
+            const event = new Event(method.toLowerCase());
+            window.dispatchEvent(event);
+            return result;
+        };
+    });
 })();
