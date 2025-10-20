@@ -1,70 +1,33 @@
-// Content script to hide LinkedIn elements
 (function () {
     'use strict';
 
-    // Function to hide LinkedIn elements
     function hideLinkedInElements() {
-        if (window.location.pathname.startsWith('/feed/')) {
-            // Hide elements with class 'scaffold-finite-scroll'
-            const scaffoldElements = document.querySelectorAll('.scaffold-finite-scroll');
-            scaffoldElements.forEach(element => {
-                element.style.display = 'none';
-            });
 
-            // Hide elements with aria-label="LinkedIn News"
-            const newsElements = document.querySelectorAll('[aria-label="LinkedIn News"]');
-            newsElements.forEach(element => {
-                element.style.display = 'none';
-            });
-        }
+        // Hide elements with aria-label="LinkedIn News"
+        const newsElements = document.querySelectorAll('[aria-label="LinkedIn News"]');
+        newsElements.forEach(element => element.style.display = 'none');
+
+        // Hide all .artdeco-card inside [aria-label="Side Bar"], except .artdeco-card.profile-card
+        const sideBar = document.querySelector('[aria-label="Side Bar"]');
+        if (sideBar) sideBar.querySelectorAll('.artdeco-card:not(.profile-card)').forEach(card => card.style.display = 'none');
+
+        // Hide elements with aria-label="Main Feed"
+        const mainFeedElements = document.querySelectorAll('[aria-label="Main Feed"] > .relative');
+        mainFeedElements.forEach(element => element.style.display = 'none');
+
+        // Add info div to main feed
+        const infoDiv = document.createElement('div');
+        infoDiv.textContent = 'Feed hidden by Linkedin Zen Mode extension';
+        infoDiv.style.background = '#fff';
+        infoDiv.style.color = '#333';
+        infoDiv.style.padding = '12px 24px';
+        infoDiv.style.borderRadius = '8px';
+        infoDiv.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+        infoDiv.style.zIndex = '9999';
+        const mainFeed = document.querySelectorAll('[aria-label="Main Feed"]');
+        mainFeed.forEach(element => element.appendChild(infoDiv));
     }
 
-    // Hide elements when the page loads
     hideLinkedInElements();
-
-    // Use MutationObserver to watch for dynamically added elements
-    const observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-            if (window.location.pathname.startsWith('/feed/')) {
-                if (mutation.type === 'childList') {
-                    // Check if any added nodes match our selectors
-                    mutation.addedNodes.forEach(function (node) {
-                        if (node.nodeType === Node.ELEMENT_NODE) {
-                            // Check if the added node itself matches our selectors
-                            if (node.classList && node.classList.contains('scaffold-finite-scroll')) {
-                                node.style.display = 'none';
-                            }
-                            if (node.getAttribute && node.getAttribute('aria-label') === 'LinkedIn News') {
-                                node.style.display = 'none';
-                            }
-                            // Check if any child elements match our selectors
-                            const scaffoldChildren = node.querySelectorAll && node.querySelectorAll('.scaffold-finite-scroll');
-                            if (scaffoldChildren) {
-                                scaffoldChildren.forEach(child => {
-                                    child.style.display = 'none';
-                                });
-                            }
-                            const newsChildren = node.querySelectorAll && node.querySelectorAll('[aria-label="LinkedIn News"]');
-                            if (newsChildren) {
-                                newsChildren.forEach(child => {
-                                    child.style.display = 'none';
-                                });
-                            }
-                        }
-                    });
-                }
-            }
-        });
-    });
-
-    // Start observing the document for changes
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-
-    // Also hide elements when the DOM is fully loaded
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', hideLinkedInElements);
-    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hideLinkedInElements);
 })();

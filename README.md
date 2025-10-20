@@ -1,10 +1,10 @@
-# Make Linkedin Tolerable Again
+# LinkedIn Zen Mode Extension
 
 <p align="center">
   <img src="icon128.png" alt="Icon" width="64" height="64"/>
 </p>
 
-I'm done with all of the virtue signalling cringe posts from pages like LeaderShip First and The Female Lead so I have made a Chrome extension that entirely removes your feed and the news sidebar.
+I'm done with all of the AI slop and virtue signalling cringe posts on Linkedin so I have made a Chrome extension that entirely removes the feed and the news sidebar.
 
 <p align="center">
   <img src="screenshot.png" alt="Screenshot of extension hiding LinkedIn feed and news sidebar"/>
@@ -12,10 +12,11 @@ I'm done with all of the virtue signalling cringe posts from pages like LeaderSh
 
 ## Installation
 
-1. Open Chrome and go to `chrome://extensions/`
-2. Enable "Developer mode" in the top right corner
-3. Click "Load unpacked" and select this folder
-4. The extension will be installed and active
+1. Download the release zip file and unzip it
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable "Developer mode" in the top right corner
+4. Click "Load unpacked" and select the folder
+5. The extension will be installed and active
 
 
 ## Files
@@ -23,14 +24,6 @@ I'm done with all of the virtue signalling cringe posts from pages like LeaderSh
 - `manifest.json` - Extension configuration
 - `content.js` - Content script that hides the elements
 - `README.md` - This file
-
-## How it works
-
-The extension uses a content script that:
-1. Runs only on LinkedIn.com (`*://*.linkedin.com/*`)
-2. Finds all elements with class `scaffold-finite-scroll` and sets `display: none`
-3. Uses MutationObserver to watch for new elements being added to the page
-4. Automatically hides any new elements with the `scaffold-finite-scroll` class
 
 ## Uninstalling
 
